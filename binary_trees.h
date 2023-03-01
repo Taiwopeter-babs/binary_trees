@@ -28,7 +28,9 @@ void binary_tree_print(const binary_tree_t *);
 int node_is_leaf(const binary_tree_t *node);
 int node_has_child(const binary_tree_t *node);
 int is_perfect(const binary_tree_t *node, size_t height, size_t level);
-
+binary_tree_t *get_root_node(binary_tree_t *node);
+binary_tree_t *ancestor(const binary_tree_t *node, const binary_tree_t *first,
+		const binary_tree_t *second);
 /* Prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -50,4 +52,6 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+		const binary_tree_t *second);
 #endif /* _BINARY_TREES_H_ */
