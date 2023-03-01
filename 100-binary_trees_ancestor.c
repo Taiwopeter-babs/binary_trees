@@ -42,7 +42,7 @@ binary_tree_t *ancestor(const binary_tree_t *node, const binary_tree_t *first,
 		return ((binary_tree_t *)node);
 	else if (left_subtree)
 		return (left_subtree);
-	else
+	else if (right_subtree)
 		return (right_subtree);
 
 	return (NULL);
