@@ -24,6 +24,7 @@ typedef struct binary_tree_s
 
 /* Visualization function */
 void binary_tree_print(const binary_tree_t *);
+
 /* Helper functions */
 int node_is_leaf(const binary_tree_t *node);
 int node_has_child(const binary_tree_t *node);
@@ -32,6 +33,8 @@ binary_tree_t *get_root_node(binary_tree_t *node);
 binary_tree_t *ancestor(const binary_tree_t *node, const binary_tree_t *first,
 		const binary_tree_t *second);
 void level_print(const binary_tree_t *tree, size_t level, void (*func)(int));
+int is_complete(const binary_tree_t *node, size_t node_idx, size_t tree_size);
+
 /* Prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -56,4 +59,6 @@ binary_tree_t *binary_tree_uncle(binary_tree_t *node);
 binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
 		const binary_tree_t *second);
 void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+int binary_tree_is_complete(const binary_tree_t *tree);
+
 #endif /* _BINARY_TREES_H_ */
