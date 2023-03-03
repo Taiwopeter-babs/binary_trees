@@ -29,7 +29,7 @@ int is_bst(binary_tree_t *node, binary_tree_t *prev)
 		return (1);
 
 	left = is_bst(node->left, prev);
-	if (prev && node->n < prev->n)
+	if (prev && node->n <= prev->n)
 		return (0);
 	prev = node;
 
