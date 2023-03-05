@@ -8,35 +8,37 @@
  */
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
-	binary_tree_t *prev = NULL;
+	boolean var = False;
 
 	if (!tree)
-		return (0);
+		return (var);
 
-	return (is_bst((binary_tree_t *) tree, prev));
+	return (is_bst((binary_tree_t *) tree, 0, 0));
 }
 /**
  * is_bst - auxilliary function for checking if a tree is a BST
  * @node: pointer to node
- * @prev: pointer to previous node on stack
+ * @min: minimum value
+ * @max: maximum value
  * Return: 1 if node is a BST, otherwise 0
  */
-int is_bst(binary_tree_t *node, binary_tree_t *prev)
+int is_bst(binary_tree_t *node, int min, int max)
 {
-	int left, right;
+	boolean var;
 
 	if (!node)
-		return (1);
-
-	left = is_bst(node->left, prev);
-	if (prev && node->n <= prev->n)
-		return (0);
-	prev = node;
-
-	right = is_bst(node->right, prev);
-
-	if (left && right)
-		return (1);
+	{
+		var = True;
+		return (var);
+	}
+	else if ((min && node->n >= min) || (max && node->n <= max))
+	{
+		var = False;
+		return (var);
+	}
 	else
-		return (0);
+	{
+		return ((is_bst(node->left, node->n, max) &&
+					is_bst(node->right, min, node->n)));
+	}
 }

@@ -22,6 +22,16 @@ typedef struct binary_tree_s
 	struct binary_tree_s *right;
 } binary_tree_t;
 
+/**
+ * enum Bool - boolean values
+ * @False: 0
+ * @True: 1
+ */
+typedef enum Bool
+{
+	False, True
+} boolean;
+
 /* Visualization function */
 void binary_tree_print(const binary_tree_t *);
 
@@ -34,7 +44,7 @@ binary_tree_t *ancestor(const binary_tree_t *node, const binary_tree_t *first,
 		const binary_tree_t *second);
 void level_print(const binary_tree_t *tree, size_t level, void (*func)(int));
 int is_complete(const binary_tree_t *node, size_t node_idx, size_t tree_size);
-int is_bst(binary_tree_t *node, binary_tree_t *prev);
+int is_bst(binary_tree_t *node, int, int);
 /* Prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
