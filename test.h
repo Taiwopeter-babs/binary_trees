@@ -1,5 +1,5 @@
-#ifndef _BINARY_TREES_H_
-#define _BINARY_TREES_H_
+#ifndef _TEST_H_
+#define _TEST_H_
 
 #include <stddef.h>
 #include <stdio.h>
@@ -14,25 +14,21 @@
  * @left: Pointer to the left child node
  * @right: Pointer to the right child node
  */
-struct binary_tree_s
+typedef struct binary_tree_s
 {
 	int n;
 	struct binary_tree_s *parent;
 	struct binary_tree_s *left;
 	struct binary_tree_s *right;
-};
+} binary_tree_t;
 
-typedef struct binary_tree_s binary_tree_t;
-typedef struct binary_tree_s bst_t;
 /**
  * enum Bool - boolean values
  * @False: 0
  * @True: 1
  */
 typedef enum Bool
-{
-	False, True
-} boolean;
+{False, True} boolean;
 
 /* Visualization function */
 void binary_tree_print(const binary_tree_t *);
@@ -47,7 +43,6 @@ binary_tree_t *ancestor(const binary_tree_t *node, const binary_tree_t *first,
 void level_print(const binary_tree_t *tree, size_t level, void (*func)(int));
 int is_complete(const binary_tree_t *node, size_t node_idx, size_t tree_size);
 int is_bst(binary_tree_t *node, int, int);
-bst_t *find_parent(bst_t *tree, int value);
 /* Prototypes */
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
 binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value);
@@ -76,5 +71,4 @@ int binary_tree_is_complete(const binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
 binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
 int binary_tree_is_bst(const binary_tree_t *tree);
-bst_t *bst_insert(bst_t **tree, int value);
-#endif /* _BINARY_TREES_H_ */
+#endif /* _TEST_H_ */
